@@ -12,8 +12,9 @@ int main() {
   char *saveptr;
 
   printf("Please enter some text: ");
-  getline(&line, &len, stdin); // get line from stdin with length len(automatic)
-  if (len == -1) {
+  ssize_t leng = getline(
+      &line, &len, stdin); // get line from stdin with length len(automatic)
+  if (leng == -1) {
     perror("getline failed");
     exit(EXIT_FAILURE);
   }
